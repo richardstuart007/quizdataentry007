@@ -4,6 +4,10 @@
 import { Button } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
 //
+//  Debug Settings
+//
+import debugSettings from '../../debug/debugSettings'
+//
 //  Styles
 //
 const useStyles = makeStyles(theme => ({
@@ -25,9 +29,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 //
-// Debugging
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function MyActionButton(props) {
   if (g_log1) console.log('Start MyActionButton')

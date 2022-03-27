@@ -16,6 +16,10 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew'
 import SearchIcon from '@mui/icons-material/Search'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 //  Styles
 //
 const useStyles = makeStyles(theme => ({
@@ -35,9 +39,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 //
-// Debugging
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function Header() {
   if (g_log1) console.log('Start Header')

@@ -3,6 +3,10 @@
 //
 import apiAxios from './apiAxios'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 // Constants
 //
 const sqlClient = 'Quiz/rowUpdate'
@@ -10,9 +14,9 @@ const { URL_BASE } = require('./constants.js')
 const { URL_QUESTIONS } = require('./constants.js')
 const { SQL_TABLE } = require('./constants.js')
 //
-//  Debug logging
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //===================================================================================
 async function rowUpdate(row) {
   if (g_log1) console.log('Start rowUpdate')
@@ -68,7 +72,7 @@ async function rowUpdate(row) {
   //-  Main Line
   //--------------------------------------------------------------------
   if (g_log1) console.log('Start rowUpdate')
-  console.log('Row ', row)
+  if (g_log1) console.log('Row ', row)
   //
   // Database Update
   //

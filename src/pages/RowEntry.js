@@ -4,6 +4,10 @@
 import { useEffect } from 'react'
 import { Grid } from '@mui/material'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 //  Controls
 //
 import Controls from '../components/controls/Controls'
@@ -27,9 +31,9 @@ const initialFValues = {
   qgroup2: ''
 }
 //
-// Constants
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function RowEntry(props) {
   const { addOrEdit, recordForEdit } = props

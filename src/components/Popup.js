@@ -5,6 +5,10 @@ import { Dialog, DialogTitle, DialogContent, Typography } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
 import CloseIcon from '@mui/icons-material/Close'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 //  Controls
 //
 import Controls from './controls/Controls'
@@ -22,9 +26,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 //
-// Debugging
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function Popup(props) {
   if (g_log1) console.log('Start Popup')

@@ -3,6 +3,10 @@
 //
 import apiAxios from './apiAxios'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 // Constants
 //
 const sqlClient = 'Quiz/rowDelete'
@@ -10,9 +14,9 @@ const { URL_BASE } = require('./constants.js')
 const { URL_QUESTIONS } = require('./constants.js')
 const { SQL_TABLE } = require('./constants.js')
 //
-//  Debug logging
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //===================================================================================
 async function rowDelete(qid) {
   if (g_log1) console.log('Start rowDelete')
@@ -60,7 +64,7 @@ async function rowDelete(qid) {
   //-  Main Line
   //--------------------------------------------------------------------
   if (g_log1) console.log('Start rowDelete')
-  console.log('qid ', qid)
+  if (g_log1) console.log('qid ', qid)
   //
   // Database Update
   //

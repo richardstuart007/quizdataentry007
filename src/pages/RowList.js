@@ -38,6 +38,10 @@ import rowUpdate from '../services/rowUpdate'
 import rowDelete from '../services/rowDelete'
 import rowSelectAll from '../services/rowSelectAll'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 //  Styles
 //
 const useStyles = makeStyles(theme => ({
@@ -65,11 +69,12 @@ const headCells = [
   { id: 'actions', label: 'Actions', disableSorting: true }
 ]
 //
-// Constants
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function RowList() {
+  if (g_log1) console.log('Start RowList')
   //.............................................................................
   //.  GET ALL
   //.............................................................................
@@ -82,18 +87,24 @@ export default function RowList() {
     //
     //  Initial status
     //
-    if (g_log1) console.log('Initial pending:', myPromiseGet.isPending()) //true
-    if (g_log1) console.log('Initial fulfilled:', myPromiseGet.isFulfilled()) //false
-    if (g_log1) console.log('Initial rejected:', myPromiseGet.isRejected()) //false
+    if (g_log1)
+      console.log('myPromiseGet Initial pending:', myPromiseGet.isPending()) //true
+    if (g_log1)
+      console.log('myPromiseGet Initial fulfilled:', myPromiseGet.isFulfilled()) //false
+    if (g_log1)
+      console.log('myPromiseGet Initial rejected:', myPromiseGet.isRejected()) //false
     //
     //  Resolve Status
     //
     myPromiseGet.then(function (data) {
-      if (g_log1) console.log('myPromise ', myPromiseGet)
-      if (g_log1) console.log('Final fulfilled:', myPromiseGet.isFulfilled()) //true
-      if (g_log1) console.log('Final rejected:', myPromiseGet.isRejected()) //false
-      if (g_log1) console.log('Final pending:', myPromiseGet.isPending()) //false
-      if (g_log1) console.log('data ', data)
+      if (g_log1) console.log('myPromiseGet ', myPromiseGet)
+      if (g_log1)
+        console.log('myPromiseGet Final fulfilled:', myPromiseGet.isFulfilled()) //true
+      if (g_log1)
+        console.log('myPromiseGet Final rejected:', myPromiseGet.isRejected()) //false
+      if (g_log1)
+        console.log('myPromiseGet Final pending:', myPromiseGet.isPending()) //false
+      if (g_log1) console.log('myPromiseGet data ', data)
       //
       //  Update Table
       //
@@ -120,18 +131,46 @@ export default function RowList() {
     //
     //  Initial status
     //
-    if (g_log1) console.log('Initial pending:', myPromiseDelete.isPending()) //true
-    if (g_log1) console.log('Initial fulfilled:', myPromiseDelete.isFulfilled()) //false
-    if (g_log1) console.log('Initial rejected:', myPromiseDelete.isRejected()) //false
+    if (g_log1)
+      console.log(
+        'myPromiseDelete Initial pending:',
+        myPromiseDelete.isPending()
+      ) //true
+    if (g_log1)
+      console.log(
+        'myPromiseDelete Initial fulfilled:',
+        myPromiseDelete.isFulfilled()
+      ) //false
+    if (g_log1)
+      console.log(
+        'myPromiseDelete Initial rejected:',
+        myPromiseDelete.isRejected()
+      ) //false
     //
     //  Resolve Status
     //
     myPromiseDelete.then(function (data) {
-      if (g_log1) console.log('myPromise ', myPromiseDelete)
-      if (g_log1) console.log('Final fulfilled:', myPromiseDelete.isFulfilled()) //true
-      if (g_log1) console.log('Final rejected:', myPromiseDelete.isRejected()) //false
-      if (g_log1) console.log('Final pending:', myPromiseDelete.isPending()) //false
-      if (g_log1) console.log('data ', data)
+      if (g_log1) console.log('myPromiseDelete myPromise ', myPromiseDelete)
+      if (g_log1)
+        console.log(
+          'myPromiseDelete Final fulfilled:',
+          myPromiseDelete.isFulfilled()
+        ) //true
+      if (g_log1)
+        console.log(
+          'myPromiseDelete Final rejected:',
+          myPromiseDelete.isRejected()
+        ) //false
+      if (g_log1)
+        console.log(
+          'myPromiseDelete Final pending:',
+          myPromiseDelete.isPending()
+        ) //false
+      if (g_log1) console.log('myPromiseDelete data ', data)
+      //
+      //  Update State - refetch data
+      //
+      getRowAllData()
       //
       //  Return Data
       //
@@ -163,18 +202,42 @@ export default function RowList() {
     //
     //  Initial status
     //
-    if (g_log1) console.log('Initial pending:', myPromiseInsert.isPending()) //true
-    if (g_log1) console.log('Initial fulfilled:', myPromiseInsert.isFulfilled()) //false
-    if (g_log1) console.log('Initial rejected:', myPromiseInsert.isRejected()) //false
+    if (g_log1)
+      console.log(
+        'myPromiseInsert Initial pending:',
+        myPromiseInsert.isPending()
+      ) //true
+    if (g_log1)
+      console.log(
+        'myPromiseInsert Initial fulfilled:',
+        myPromiseInsert.isFulfilled()
+      ) //false
+    if (g_log1)
+      console.log(
+        'myPromiseInsert Initial rejected:',
+        myPromiseInsert.isRejected()
+      ) //false
     //
     //  Resolve Status
     //
     myPromiseInsert.then(function (data) {
-      if (g_log1) console.log('myPromise ', myPromiseInsert)
-      if (g_log1) console.log('Final fulfilled:', myPromiseInsert.isFulfilled()) //true
-      if (g_log1) console.log('Final rejected:', myPromiseInsert.isRejected()) //false
-      if (g_log1) console.log('Final pending:', myPromiseInsert.isPending()) //false
-      if (g_log1) console.log('data ', data)
+      if (g_log1) console.log('myPromiseInsert ', myPromiseInsert)
+      if (g_log1)
+        console.log(
+          'myPromiseInsert Final fulfilled:',
+          myPromiseInsert.isFulfilled()
+        ) //true
+      if (g_log1)
+        console.log(
+          'myPromiseInsert Final rejected:',
+          myPromiseInsert.isRejected()
+        ) //false
+      if (g_log1)
+        console.log(
+          'myPromiseInsert Final pending:',
+          myPromiseInsert.isPending()
+        ) //false
+      if (g_log1) console.log('myPromiseInsert data ', data)
       //
       //  No data returned
       //
@@ -188,6 +251,10 @@ export default function RowList() {
         const rtn_qid = data[0].qid
         if (g_log1) console.log(`Row (${rtn_qid}) UPSERTED in Database`)
       }
+      //
+      //  Update State - refetch data
+      //
+      getRowAllData()
       //
       //  Return Data
       //
@@ -209,23 +276,47 @@ export default function RowList() {
     //
     //  Process promise
     //
-    if (g_log1) console.log('rowUpsert')
+    if (g_log1) console.log('rowUpdate')
     var myPromiseUpdate = MyQueryPromise(rowUpdate(data))
     //
     //  Initial status
     //
-    if (g_log1) console.log('Initial pending:', myPromiseUpdate.isPending()) //true
-    if (g_log1) console.log('Initial fulfilled:', myPromiseUpdate.isFulfilled()) //false
-    if (g_log1) console.log('Initial rejected:', myPromiseUpdate.isRejected()) //false
+    if (g_log1)
+      console.log(
+        'myPromiseUpdate Initial pending:',
+        myPromiseUpdate.isPending()
+      ) //true
+    if (g_log1)
+      console.log(
+        'myPromiseUpdate Initial fulfilled:',
+        myPromiseUpdate.isFulfilled()
+      ) //false
+    if (g_log1)
+      console.log(
+        'myPromiseUpdate Initial rejected:',
+        myPromiseUpdate.isRejected()
+      ) //false
     //
     //  Resolve Status
     //
     myPromiseUpdate.then(function (data) {
-      if (g_log1) console.log('myPromise ', myPromiseUpdate)
-      if (g_log1) console.log('Final fulfilled:', myPromiseUpdate.isFulfilled()) //true
-      if (g_log1) console.log('Final rejected:', myPromiseUpdate.isRejected()) //false
-      if (g_log1) console.log('Final pending:', myPromiseUpdate.isPending()) //false
-      if (g_log1) console.log('data ', data)
+      if (g_log1) console.log('myPromiseUpdate ', myPromiseUpdate)
+      if (g_log1)
+        console.log(
+          'myPromiseUpdate Final fulfilled:',
+          myPromiseUpdate.isFulfilled()
+        ) //true
+      if (g_log1)
+        console.log(
+          'myPromiseUpdate Final rejected:',
+          myPromiseUpdate.isRejected()
+        ) //false
+      if (g_log1)
+        console.log(
+          'myPromiseUpdate Final pending:',
+          myPromiseUpdate.isPending()
+        ) //false
+      if (g_log1) console.log('myPromiseUpdate data ', data)
       //
       //  No data
       //
@@ -239,6 +330,10 @@ export default function RowList() {
         const rtn_qid = data[0].qid
         if (g_log1) console.log(`Row (${rtn_qid}) UPDATED in Database`)
       }
+      //
+      //  Update State - refetch data
+      //
+      getRowAllData()
       //
       //  Return Data
       //
@@ -309,8 +404,6 @@ export default function RowList() {
     resetForm()
     setRecordForEdit(null)
     setOpenPopup(false)
-    // setRecords(getRowAllData())
-    getRowAllData()
     setNotify({
       isOpen: true,
       message: 'Submitted Successfully',
@@ -335,8 +428,6 @@ export default function RowList() {
       isOpen: false
     })
     deleteRowData(qid)
-    // setRecords(getRowAllData())
-    getRowAllData()
     setNotify({
       isOpen: true,
       message: 'Deleted Successfully',

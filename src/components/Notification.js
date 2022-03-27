@@ -5,6 +5,10 @@ import { Snackbar } from '@mui/material'
 import makeStyles from '@mui/styles/makeStyles'
 import { Alert } from '@mui/material'
 //
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
 //  Styles
 //
 const useStyles = makeStyles(theme => ({
@@ -13,9 +17,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 //
-// Debugging
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function Notification(props) {
   if (g_log1) console.log('Start Notification')

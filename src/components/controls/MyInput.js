@@ -3,9 +3,13 @@
 //
 import { TextField } from '@mui/material'
 //
-// Debugging
+//  Debug Settings
 //
-let g_log1 = false
+import debugSettings from '../../debug/debugSettings'
+//
+// Debug Settings
+//
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function MyInput(props) {
   if (g_log1) console.log('Start MyInput')

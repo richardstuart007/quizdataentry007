@@ -5,9 +5,13 @@ import { LocalizationProvider, DatePicker } from '@mui/lab'
 import DateFnsUtils from '@date-io/date-fns'
 import { TextField } from '@mui/material'
 //
-// Debugging
+//  Debug Settings
 //
-let g_log1 = false
+import debugSettings from '../../debug/debugSettings'
+//
+// Debug Settings
+//
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function MyDatePicker(props) {
   if (g_log1) console.log('Start MyDatePicker')

@@ -7,9 +7,14 @@ import {
   TablePagination,
   TableSortLabel
 } from '@mui/material'
-
 import makeStyles from '@mui/styles/makeStyles'
-
+//
+//  Debug Settings
+//
+import debugSettings from '../debug/debugSettings'
+//
+//  Styles
+//
 const useStyles = makeStyles(theme => ({
   table: {
     marginTop: theme.spacing(3),
@@ -28,9 +33,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 //
-// Constants
+// Debug Settings
 //
-let g_log1 = false
+const g_log1 = debugSettings()
 //=====================================================================================
 export default function useTable(records, headCells, filterFn) {
   const classes = useStyles()

@@ -4,9 +4,13 @@
 import { useState } from 'react'
 import makeStyles from '@mui/styles/makeStyles'
 //
-// Constants
+//  Debug Settings
 //
-let g_log1 = false
+import debugSettings from '../debug/debugSettings'
+//
+// Debug Settings
+//
+const g_log1 = debugSettings()
 //=====================================================================================
 export function useForm(initialFValues, validateOnChange = false, validate) {
   if (g_log1) console.log('Start useForm')
